@@ -155,3 +155,26 @@ export async function deleteSpace(
 
   return { status: "deleted" as const }
 }
+
+export async function renameSpace(
+  userId: string,
+  spaceId: string,
+  name: string
+): Promise<{ status: "renamed" | "not_found" | "forbidden" }> {
+  const space = await client.space.findUnique({
+    where: { id: spaceId },
+    select: { id: true, creatorId: true },
+  })
+
+  if (!space) return { status: "not_found" }
+  if (space.creatorId !== userId) return { status: "forbidden" }
+
+  await client.space.update({
+    where: { id: spaceId },
+    data: { name },
+  })
+
+  await invalidateUserSpacesCache(userId)
+
+  return { status: "renamed" }
+}

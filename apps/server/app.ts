@@ -49,10 +49,10 @@ app.use("/api/users", userRouter)
 app.use("/api/rtc", rtcRouter)
 app.use("/api/friends", friendsRouter)
 
-// health 
+// health
 app.get("/health", (_req, res) => {
   res.json({ status: "ok" })
 })
 
-// error middleware 
+// error middleware
 app.use(errorMiddleware)

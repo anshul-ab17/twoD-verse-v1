@@ -1,6 +1,6 @@
 import { useSpaceSidebar } from "./SpaceSidebarContext";
 import { getAvatarColor, getUserInitials } from "./avatar";
-import { useAuthSession } from "../providers/AuthSessionProvider";
+import { useAuthSession } from "@/features/auth/AuthSessionProvider";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -39,9 +39,9 @@ export default function SidebarUser({ collapsed }: Props) {
 
         <span
           className="
-            absolute bottom-0 right-0 
-            w-3 h-3 bg-green-500 
-            border-2 border-[#3b2a1a] 
+            absolute bottom-0 right-0
+            w-3 h-3 bg-green-500
+            border-2 border-[#3b2a1a]
             rounded-full
           "
         />

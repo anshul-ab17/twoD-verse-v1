@@ -4,7 +4,7 @@ import type { Profile } from "passport-github2"
 import { client } from "@repo/db"
 import { signAccessToken } from "@repo/auth"
 
-passport.use(
+if (process.env.GitHub_CLIENT_ID && process.env.GitHub_CLIENT_SECRET) passport.use(
   new GitHubStrategy(
     {
       clientID: process.env.GitHub_CLIENT_ID!,
@@ -28,13 +28,13 @@ passport.use(
           where: { email },
           include: { accounts: true },
         })
- 
+
         if (!user) {
           user = await client.user.create({
             data: { email },
             include: { accounts: true },
           })
-        } 
+        }
         const existingAccount = await client.account.findFirst({
           where: {
             provider: "GITHUB",

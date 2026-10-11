@@ -13,25 +13,25 @@ const CHARACTERS: CharacterOption[] = [
   {
     key: "adam",
     name: "Adam",
-    idleFrame: "/asset/character/single/Adam_idle_anim_1.png",
+    idleFrame: "/game/asset/character/single/Adam_idle_anim_1.png",
     description: "The classic explorer",
   },
   {
     key: "ash",
     name: "Ash",
-    idleFrame: "/asset/character/single/Ash_idle_anim_1.png",
+    idleFrame: "/game/asset/character/single/Ash_idle_anim_1.png",
     description: "Cool and collected",
   },
   {
     key: "lucy",
     name: "Lucy",
-    idleFrame: "/asset/character/single/Lucy_idle_anim_1.png",
+    idleFrame: "/game/asset/character/single/Lucy_idle_anim_1.png",
     description: "Bright and energetic",
   },
   {
     key: "nancy",
     name: "Nancy",
-    idleFrame: "/asset/character/single/Nancy_idle_anim_1.png",
+    idleFrame: "/game/asset/character/single/Nancy_idle_anim_1.png",
     description: "Calm and creative",
   },
 ]

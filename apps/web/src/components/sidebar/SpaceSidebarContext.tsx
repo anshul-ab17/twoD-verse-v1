@@ -3,8 +3,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { useParams } from "next/navigation"
 import { getGeneratedAvatarDataUrl } from "./avatar"
-import { useAuthSession } from "@/components/providers/AuthSessionProvider"
-import { apiFetch } from "@/lib/api"
+import { useAuthSession } from "@/features/auth/AuthSessionProvider"
+import { apiFetch } from "@/lib/api/client"
 
 type PaneMode = "map" | "chat" | "search" | "notifications" | "spotify" | "friends"
 

@@ -15,18 +15,18 @@ export default function SidebarInviteCard() {
 
   const handleInvite = () => {
     if (spaceId) {
-      router.push(`/dashboard/spaces/${spaceId}/invite`)
+      router.push(`/spaces/${spaceId}/invite`)
       return
     }
 
-    router.push("/dashboard/spaces")
+    router.push("/spaces")
   }
 
   return (
     <div
       className="
-        bg-linear-to-br 
-        from-[#2f3e2f] 
+        bg-linear-to-br
+        from-[#2f3e2f]
         to-[#1f2a1f]
         border border-[#556b2f]
         rounded-xl

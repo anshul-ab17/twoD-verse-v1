@@ -3,7 +3,7 @@ import { ExternalLink, Pause, Play, UserPlus, UserMinus, Wifi, Link, Search, Log
 import SidebarInviteCard from "./SidebarInviteCard";
 import SidebarUser from "./SidebarUser";
 import { useSpaceSidebar } from "./SpaceSidebarContext";
-import { apiFetch, getApiBaseUrl } from "@/lib/api";
+import { apiFetch, getApiBaseUrl } from "@/lib/api/client";
 
 declare global {
   interface Window {
@@ -285,7 +285,7 @@ export default function SidebarContent({ toggle }: Props) {
   }
 
   const copyInviteLink = (userId: string) => {
-    const link = `${window.location.origin}/dashboard/spaces/${spaceId}`
+    const link = `${window.location.origin}/spaces/${spaceId}`
     navigator.clipboard.writeText(link).then(() => {
       setCopiedId(userId)
       setTimeout(() => setCopiedId(null), 2000)

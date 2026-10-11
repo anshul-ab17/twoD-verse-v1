@@ -11,7 +11,7 @@ export default class OfficeScene extends Phaser.Scene {
     super("OfficeScene")
   }
 
-  preload() { 
+  preload() {
     this.load.image(
       "office",
       "https://i.imgur.com/3e5ZKkT.png"

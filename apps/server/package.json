@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "bun run index.ts",
-    "start": "bun index.ts"
+    "start": "bun index.ts",
+    "seed": "bun run seed.ts"
   },
   "devDependencies": {
     "@repo/auth": "*",

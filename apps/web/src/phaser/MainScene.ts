@@ -12,7 +12,7 @@ import type {
   Interactable, RealtimePlayer, RemoteAvatar,
 } from "./types"
 
-//  Scene 
+//  Scene
 
 export default class MainScene extends Phaser.Scene {
   private charKey: CharKey = "adam"
@@ -68,7 +68,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Preload 
+  //  Preload
 
   preload() {
     this.load.on(Phaser.Loader.Events.FILE_LOAD_ERROR, (file: Phaser.Loader.File) => {
@@ -96,7 +96,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Animations 
+  //  Animations
 
   private ensurePlayerAnimations() {
     for (const key of CHAR_KEYS) {
@@ -124,7 +124,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Map / object helpers   
+  //  Map / object helpers
 
   private getObjectTop(object: Phaser.Types.Tilemaps.TiledObject): number {
     const y = object.y ?? 0
@@ -244,7 +244,7 @@ export default class MainScene extends Phaser.Scene {
     )
   }
 
-  //  Interactables 
+  //  Interactables
 
   private getObjectStringProperty(object: Phaser.Types.Tilemaps.TiledObject, key: string) {
     const property = object.properties?.find((entry: { name?: string; value?: unknown }) => entry.name === key)
@@ -327,7 +327,7 @@ export default class MainScene extends Phaser.Scene {
     return "Buy"
   }
 
-  //  Player / room helpers   
+  //  Player / room helpers
 
   private getPlayerFeetPosition() {
     if (!this.player) return undefined
@@ -420,7 +420,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Sitting 
+  //  Sitting
 
   private setPlayerCollisionEnabled(enabled: boolean) {
     if (!this.player) return
@@ -492,7 +492,7 @@ export default class MainScene extends Phaser.Scene {
     this.showInteractionStatus("Adjusted position")
   }
 
-  //  Interaction prompts   
+  //  Interaction prompts
 
   private updateInteractionPrompt() {
     if (!this.interactionPrompt) return
@@ -553,7 +553,7 @@ export default class MainScene extends Phaser.Scene {
     this.showInteractionStatus("Bought a snack")
   }
 
-  //  Room logic 
+  //  Room logic
 
   private applyRoomLogic() {
     if (!this.player || !this.roomByTile || !this.roomLabel) return
@@ -580,7 +580,7 @@ export default class MainScene extends Phaser.Scene {
     this.roomLabel.setText(`Room ${roomId + 1}/${Math.max(this.roomCount, 1)}`)
   }
 
-  //  Camera 
+  //  Camera
 
   private clampPlayerSpriteToWorld() {
     if (!this.player) return
@@ -604,7 +604,7 @@ export default class MainScene extends Phaser.Scene {
     this.cameras.main.setZoom(Phaser.Math.Linear(this.cameras.main.zoom, targetZoom, 0.08))
   }
 
-  //  Player state event 
+  //  Player state event
 
   private emitPlayerState(force = false) {
     if (!this.player || typeof window === "undefined") return
@@ -631,7 +631,7 @@ export default class MainScene extends Phaser.Scene {
     window.dispatchEvent(new CustomEvent("twodverse:player-state", { detail: { x, y, roomId } }))
   }
 
-  //  Remote players 
+  //  Remote players
 
   private createRemoteAvatar(player: RealtimePlayer) {
     const safePosition =
@@ -740,13 +740,13 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Theme 
+  //  Theme
 
   private applyTheme(themeKey: string) {
     this.cameras.main.setBackgroundColor(THEME_BG[themeKey] ?? "#1e1e1e")
   }
 
-  //  Event binding 
+  //  Event binding
 
   private bindRemotePlayerEvents() {
     if (typeof window === "undefined") return
@@ -801,7 +801,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  //  Lifecycle 
+  //  Lifecycle
 
   create() {
     const savedTheme =

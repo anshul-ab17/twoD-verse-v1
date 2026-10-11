@@ -4,7 +4,7 @@ import type { Profile } from "passport-google-oauth20"
 import { client } from "@repo/db"
 import { signAccessToken } from "@repo/auth"
 
-passport.use(
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
@@ -18,12 +18,12 @@ passport.use(
         if (!email) {
           return done(new Error("No email from Google"), undefined)
         }
- 
+
         let user = await client.user.findUnique({
           where: { email },
           include: { accounts: true },
         })
- 
+
         if (!user) {
           user = await client.user.create({
             data: { email },
